@@ -139,7 +139,7 @@ window#waybar {
 }
 
 #pulseaudio.muted {
-    color: @gray;
+    color: @red;
     font-weight: bold;
 }
 

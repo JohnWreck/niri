@@ -94,9 +94,9 @@
     "on-click-right": "ghostty -e wiremix",
     "tooltip-format": "<b>Output device:</b> {desc}\n<b>Volume:</b> {volume}%\n<b>Mic Volume:</b> {format_source}",
     "scroll-step": 1,
-    "format-muted": " ",
+    "format-muted": "  ",
     "format-icons": {
-      "default": [ " ", " ", " " ]
+      "default": [ "  ", "  ", "   " ]
     }
   },
   "tray": {
@@ -105,14 +105,14 @@
   },
   "network": {
     "format-icons": [
-      "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "
+      "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
     ],
     "format": "{icon}",
-    "format-wifi": "{icon} {signalStrength}% ",
+    "format-wifi": "{icon} {signalStrength}%",
     //"format-ethernet": "󱘖 ",
     //"format-ethernet": " ",
-    "format-ethernet": " ",
-    "format-disconnected": "󰖪 ",
+    "format-ethernet": "  ",
+    "format-disconnected": " 󰖪 ",
     //"tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}\n\n{ipaddr}",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n{ipaddr}",
     //"tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}\n\n{ipaddr}",

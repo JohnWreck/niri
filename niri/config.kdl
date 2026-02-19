@@ -79,7 +79,12 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "Lenovo Group Limited 0x403D Unknown" {
+
+output "ASUSTek COMPUTER INC VG279QL1A 0x0000CE0E" {
+       mode "1920x1080@143.850"
+   }
+
+/-output "Lenovo Group Limited 0x403D Unknown" {
     // Uncomment this line to disable this output.
     // off
 
@@ -115,7 +120,7 @@ output "Lenovo Group Limited 0x403D Unknown" {
     }
 }
 
-output "Dell Inc. DELL P2725DE 16ZQ864" {
+/-output "Dell Inc. DELL P2725DE 16ZQ864" {
     mode "2560x1440@99.946"
 
     scale 1.25
@@ -299,7 +304,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "mako" "-c" "~/.config/niri/mako/config"
-spawn-at-startup "swaybg" "--mode" "fill" "--image" "./brown001.jpg"
+//spawn-at-startup "swaybg" "--mode" "fill" "--image" "~//brown001.jpg"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
