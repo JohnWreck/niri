@@ -1,1 +1,1 @@
-# niri
+# Niri configs
