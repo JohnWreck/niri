@@ -1,0 +1,152 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "height": 32,
+  "modules-left": [
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "niri/window"
+  ],
+  "modules-right": [
+    "load",
+    "pulseaudio",
+    "battery",
+    "network",
+    "tray",
+    "clock"
+  ],
+  "niri/workspaces": {
+    "on-click": "activate",
+    "on-click-right": "fuzzel",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": "󱓻"
+    }
+  },
+    "load": {
+        "interval": 10,
+        "format": "{load1}",
+        "max-length": 10
+    },
+    "niri/window": {
+      "format": "{app_id}",
+      "rewrite": {
+          "app.zen_browser.zen": "Zen browser",
+          "org.signal.Signal": "Signal",
+          "org.gnome.Nautilus": "Nautilus",
+          "com.mitchellh.ghostty": "Ghostty"
+        },
+      "separate-outputs": true,
+      "tooltip": false,
+      "swap-icon-label": false,
+      "on-click": "niri msg action center-window",
+      "on-double-click": "niri msg action maximize-column",
+      "on-double-click-right": "niri msg action close-window",
+      "on-scroll-up": "niri msg action focus-column-left",
+      "on-scroll-down": "niri msg action focus-column-right"
+    },
+
+  "clock": {
+    //"format": "{:%a %d.%m. %H:%M}",
+    "format": "{:%d.%m. %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "timezones": [
+      "Europe/Zagreb"
+    ],
+    "on-click-right": "xdg-open https://www.yr.no/en/forecast/graph/2-3186886/Croatia/City%20of%20Zagreb/Zagreb",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ebdbb2'><b>{}</b></span>",        // fg1 (warm light)
+        "days": "<span color='#d3869b'><b>{}</b></span>",          // purple
+        "weeks": "<span color='#8ec07c'><b>W{:%V}</b></span>",     // aqua
+        "weekdays": "<span color='#fabd2f'><b>{}</b></span>",     // yellow
+        "today": "<span color='#fb4934'><b><u>{}</u></b></span>"  // red (emphasis)
+      }
+    }
+  },
+  "group/tray-expander": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
+  },
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "wpctl set-mute \"@DEFAULT_AUDIO_SINK@\" toggle",
+    "on-click-right": "ghostty -e wiremix",
+    "tooltip-format": "<b>Output device:</b> {desc}\n<b>Volume:</b> {volume}%\n<b>Mic Volume:</b> {format_source}",
+    "scroll-step": 1,
+    "format-muted": " ",
+    "format-icons": {
+      "default": [ " ", " ", " " ]
+    }
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 0
+  },
+  "network": {
+    "format-icons": [
+      "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "
+    ],
+    "format": "{icon}",
+    "format-wifi": "{icon} {signalStrength}% ",
+    //"format-ethernet": "󱘖 ",
+    //"format-ethernet": " ",
+    "format-ethernet": " ",
+    "format-disconnected": "󰖪 ",
+    //"tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}\n\n{ipaddr}",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n{ipaddr}",
+    //"tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}\n\n{ipaddr}",
+    "tooltip-format-ethernet": "<b>{ifname}</b>\n{ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 10,
+    "on-click-right": "ghostty -e nmtui"
+  },
+
+"custom/ping": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/ping.sh",
+    "interval": 10,
+    "tooltip": false,
+    "max-length": 10
+},
+  "battery": {
+    "format": "{capacity}%",
+    "format-charging": "{capacity}% {icon}",
+    "format-discharging": "{capacity}% {icon}",
+    "format-plugged": "{icon}",
+    "format-icons": {
+      "plugged": [ "󱐋" ],
+      "charging": [ "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅" ],
+      "default": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ]
+    },
+    "format-full": "󰂅",
+    "tooltip-format-plugged": "<b>Health</b>:{health}%\n<b>Capacity</b>:{capacity}%\n<b>Cycles</b>:{cycles}",
+    "tooltip-format-discharging": "<b>Power</b>:{power:>1.0f}W↓\n<b>Capacity</b>:{capacity}%\n<b>TTE</b>: {timeTo} empty",
+    "tooltip-format-charging": "<b>Power</b>:{power:>1.0f}W↑ \n<b>Capacity</b>:{capacity}%\n<b>TTF</b>: {timeTo} full",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  }
+}

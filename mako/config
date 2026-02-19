@@ -1,0 +1,40 @@
+# ~/.config/mako/config
+# Gruvbox dark theme for Mako notifications
+# Classic palette with semi-transparent backgrounds
+# Reload: makoctl reload
+
+font=Sans 11
+width=350
+height=100
+margin=4
+padding=12
+border-size=2
+border-radius=8
+icons=1
+layer=overlay
+anchor=top-right
+actions=1
+
+background-color=#1d2021cc
+
+text-color=#ebdbb2
+
+border-color=#fabd2f66
+
+progress-color=source #d79921
+
+[urgency=low]
+border-color=#b8bb26
+background-color=#1d2021ee
+text-color=#ebdbb2
+
+[urgency=normal]
+border-color=#fabd2f
+background-color=#1d2021ee
+text-color=#ebdbb2
+
+[urgency=critical]
+border-color=#fb4934
+background-color=#1d2021f2
+text-color=#ebdbb2
+default-timeout=0

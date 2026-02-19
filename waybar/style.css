@@ -1,0 +1,198 @@
+/* =========================
+   Gruvbox Dark Palette
+   ========================= */
+@define-color bg        #282828;
+@define-color bg-alt    #32302f;
+@define-color bg-soft   #3c3836;
+@define-color fg        #ebdbb2;
+@define-color fg-dim    #a89984;
+
+@define-color red       #fb4934;
+@define-color green     #b8bb26;
+@define-color yellow    #fabd2f;
+@define-color blue      #83a598;
+@define-color purple    #d3869b;
+@define-color aqua      #8ec07c;
+@define-color orange    #fe8019;
+@define-color gray      #928374;
+
+/* =========================
+   Global
+   ========================= */
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+}
+
+window#waybar {
+    background: @bg;
+    color: @fg;
+    border-bottom: 0px solid @bg-soft;
+}
+
+/* =========================
+   Workspaces (Niri)
+   ========================= */
+#workspaces {
+    margin-left: 2px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: @fg;
+    background: transparent;
+}
+
+#workspaces button.active {
+    color: @fg;
+    background: @bg-soft;
+    border-radius: 6px;
+}
+
+#workspaces button.empty {
+    color: @fg-dim;
+    background: transparent;
+    border-radius: 6px;
+}
+
+#workspaces button:hover {
+    color: @fg;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: @bg;
+}
+
+/* =========================
+   Window Title (Center)
+   ========================= */
+#window {
+    color: @fg;
+    font-weight: bold;
+}
+
+#window.empty {
+    color: @gray;
+}
+
+/* =========================
+   Module Base Style
+   ========================= */
+#clock,
+#network,
+#pulseaudio,
+#battery,
+#tray,
+#load {
+    background: @bg-alt;
+    margin: 4px 3px;
+    padding: 0 10px;
+    border-radius: 6px;
+}
+
+/* =========================
+   Load
+   ========================= */
+#load {
+    color: @yellow;
+    font-weight: bold;
+}
+
+#load.warning {
+    color: @yellow;
+}
+
+#load.critical {
+    color: @red;
+}
+
+/* =========================
+   Clock
+   ========================= */
+#clock {
+    color: @orange;
+    font-weight: bold;
+}
+
+/* =========================
+   Network
+   ========================= */
+#network {
+    color: @yellow;
+    font-weight: bold;
+}
+
+#network.disconnected {
+    color: @red;
+    font-weight: bold;
+}
+
+/* =========================
+   Pulseaudio
+   ========================= */
+#pulseaudio {
+    color: @yellow;
+    font-weight: bold;
+}
+
+#pulseaudio.muted {
+    color: @gray;
+    font-weight: bold;
+}
+
+/* =========================
+   Battery
+   ========================= */
+#battery {
+    color: @yellow;
+}
+
+#battery.warning {
+    color: @yellow;
+    font-weight: bold;
+}
+
+#battery.critical {
+    color: @red;
+    font-weight: bold;
+}
+
+#battery.charging {
+    color: @aqua;
+    font-weight: bold;
+}
+
+/* =========================
+   Tray
+   ========================= */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    background: @red;
+}
+
+/* =========================
+   Tooltips
+   ========================= */
+tooltip {
+    background: @bg-alt;
+    color: @fg;
+    border: 1px solid @gray;
+    border-radius: 6px;
+}
+
+/* =========================
+   Optional: Subtle separators
+   ========================= */
+.modules-right > widget:not(:last-child) {
+    margin-right: 2px;
+}
