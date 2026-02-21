@@ -84,7 +84,7 @@ output "ASUSTek COMPUTER INC VG279QL1A 0x0000CE0E" {
        mode "1920x1080@143.850"
    }
 
-/-output "Lenovo Group Limited 0x403D Unknown" {
+output "Lenovo Group Limited 0x403D Unknown" {
     // Uncomment this line to disable this output.
     // off
 
@@ -120,7 +120,7 @@ output "ASUSTek COMPUTER INC VG279QL1A 0x0000CE0E" {
     }
 }
 
-/-output "Dell Inc. DELL P2725DE 16ZQ864" {
+output "Dell Inc. DELL P2725DE 16ZQ864" {
     mode "2560x1440@99.946"
 
     scale 1.25
@@ -304,7 +304,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "mako" "-c" "~/.config/niri/mako/config"
-//spawn-at-startup "swaybg" "--mode" "fill" "--image" "~//brown001.jpg"
+spawn-sh-at-startup "swaybg --mode fill --image $HOME/.config/niri/wall/wall003.jpg"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -369,6 +369,16 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^org.gnome.Calculator$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="^gnome-disks$"
+    open-floating true
+}
+
+window-rule {
     match app-id=r#"^app\.zen_browser\.zen$"# title="(?i:.*bitwarden.*)"
     open-floating true
 }
@@ -387,9 +397,20 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
+
 window-rule {
     geometry-corner-radius 2
     clip-to-geometry true
+}
+
+window-rule {
+    match is-active=false
+    opacity 1.00
+}
+
+window-rule {
+    match is-active=true
+    opacity 1.00
 }
 
 binds {
