@@ -22,6 +22,8 @@
     "on-click": "activate",
     "on-click-right": "fuzzel",
     "format": "{icon}",
+    "on-scroll-up": "niri msg action focus-workspace-up",
+    "on-scroll-down": "niri msg action focus-workspace-down",
     "format-icons": {
       "default": "",
       "active": "󱓻"
@@ -101,7 +103,7 @@
   },
   "tray": {
     "icon-size": 15,
-    "spacing": 0
+    "spacing": 8
   },
   "network": {
     "format-icons": [

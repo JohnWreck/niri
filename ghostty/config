@@ -42,7 +42,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 title = Ghostty
-keybind = clear
+#keybind = clear
 theme = GruvboxDark
 window-height = 60
 window-width = 180

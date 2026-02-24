@@ -51,7 +51,7 @@ input {
         accel-speed 0.3
         accel-profile "flat"
         // scroll-method "no-scroll"
-        scroll-factor 1
+        scroll-factor 0.8
     }
 
     trackpoint {
@@ -129,7 +129,7 @@ output "Dell Inc. DELL P2725DE 16ZQ864" {
 
     transform "normal"
     hot-corners {
-        top-left
+        bottom-left
     }
 }
 
@@ -433,8 +433,8 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+X hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Super+Shift+Space { spawn-sh "find $HOME -type f | fuzzel --hide-before-typing -d | xargs -r xdg-open"; }
-    Super+D { spawn-sh "find \"$HOME\" -type d | fuzzel -d | xargs -r ghostty -e nnn -Aide" ; }
+    Super+Shift+Space { spawn-sh "find $HOME/Downloads $HOME/Work -type f | fuzzel --hide-before-typing -d | xargs -r xdg-open"; }
+    Super+D { spawn-sh "find \"$HOME\" -type d | fuzzel --hide-before-typing -d | xargs -r ghostty -e nnn -Aide" ; }
     Super+Ctrl+W { spawn-sh "pkill -SIGUSR2 waybar"; }
     Super+Ctrl+Alt+S { spawn-sh "poweroff"; }
 
