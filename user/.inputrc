@@ -1,0 +1,7 @@
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set colored-stats on
+set colored-completion-prefix on
+set echo-control-characters off
+
+"\C-n": menu-complete

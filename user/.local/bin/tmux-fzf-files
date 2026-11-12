@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+mode="${1:-split}"
+
+selected="$(
+    fzf -i --reverse \
+        --border \
+        --prompt="Files > " \
+
+)" || exit 0
+
+[ -z "$selected" ] && exit 0
+
+case "$mode" in
+    split)
+        tmux split-window -h -c "$PWD" \
+            "nvim -- $(printf '%q' "$selected")"
+        ;;
+    window)
+        tmux new-window -c "$PWD" \
+            "nvim -- $(printf '%q' "$selected")"
+        ;;
+esac
+
+
